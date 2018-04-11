@@ -24,3 +24,5 @@ coverage
 build/
 dist/
 
+# Example folder #
+example
