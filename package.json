@@ -7,13 +7,10 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {
-    "start": "nodemon server/express.js;"
-  },
+  "scripts": {},
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.3",
-    "path": "^0.12.7"
+    "faker": "^4.1.0",
+    "mongoose": "^5.0.14"
   },
   "devDependencies": {
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
