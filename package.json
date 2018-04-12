@@ -9,8 +9,11 @@
   },
   "scripts": {},
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
     "faker": "^4.1.0",
-    "mongoose": "^5.0.14"
+    "mongoose": "^5.0.14",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
