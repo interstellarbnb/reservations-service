@@ -26,3 +26,12 @@ dist/
 
 # Example folder #
 ./example
+
+# JSON Data
+*.json
+
+DS_Store
+
+node_modules
+
+.gitignore

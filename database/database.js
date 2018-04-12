@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const db = mongoose.connect('mongodb://localhost:3004/Reservations');
+const db = mongoose.connect('mongodb://localhost/Reservations');
 
 const ListingSchema = new mongoose.Schema({
   id: {
@@ -10,11 +10,13 @@ const ListingSchema = new mongoose.Schema({
   reservations: Array,
   reviewCount: Number,
   avgStars: Number,
-  fee: Number
+  fee: Number,
+  maxGuests: Number,
+  views: Number,
 });
 
 const Listing = mongoose.model('Listing', ListingSchema);
 
 module.exports = {
   Listing,
-}
+};
