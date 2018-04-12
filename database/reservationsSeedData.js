@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 const { Listing } = require('./database.js');
-mongoose.Promise = global.Promise
+
+mongoose.Promise = global.Promise;
 
 // returns array of x entries
 const createEntries = (x, startingId = 2) => {
-  let entries = [];
+  const entries = [];
   // for 2-100 generate fake object and write to
-  for (let id = startingId; id <= x + startingId; id = id + 1) {
-    let params = {
+  for (let id = startingId; id <= x + startingId; id += 1) {
+    const params = {
       id,
       reservations: [{
         id,
@@ -23,28 +24,28 @@ const createEntries = (x, startingId = 2) => {
       fee: Math.floor(Math.random() * 250) + 50,
       maxGuests: Math.floor(Math.random() * 4) + 1,
       views: Math.floor(Math.random() * 1000),
-    }
+    };
     entries.push(params);
   }
-}
+};
 // saves an array of entries to the db
 const saveEntries = async (entries) => {
   try {
-    await Promise.all(entries.map(entry => {
-      let newEntry = new Listing(entry);
+    await Promise.all(entries.map((entry) => {
+      const newEntry = new Listing(entry);
       return newEntry.save();
-    }))
+    }));
     console.log('All Saved!');
-  } catch(error) {
+  } catch (error) {
     console.log(error);
   }
-}
+};
 // Seeds the data into db
-const seedReservations = () => {
-  let entries = [];
+const seedReservations = async () => {
+  const entries = [];
 
   // For Listing one
-  let listingOneParams = {
+  const listingOneParams = {
     id: 1,
     reservations: [{
       id: 1,
@@ -58,16 +59,13 @@ const seedReservations = () => {
     reviewCount: 275,
     avgStars: 4.5,
     fee: 148,
-    maxGuests: 4
+    maxGuests: 4,
   };
-  
   const listingOne = new Listing(listingOneParams);
   entries.push(listingOne);
   entries.concat(createEntries(99));
-  
   await saveEntries(entries);
-
-  console.log('Seeding Done!')
-}
+  console.log('Seeding Done!');
+};
 
 seedReservations();

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const db = mongoose.connect('mongodb://localhost/Reservations');
+mongoose.connect('mongodb://localhost/Reservations');
 
 const ListingSchema = new mongoose.Schema({
   id: {

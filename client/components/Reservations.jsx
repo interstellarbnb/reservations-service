@@ -9,8 +9,10 @@ class Reservations extends React.Component {
     };
   }
   render() {
-    <div>
-      Reservations rendered successfully!
-    </div>
+    return (
+      <div>
+        Reservations rendered successfully!
+      </div>
+    );
   }
 }
