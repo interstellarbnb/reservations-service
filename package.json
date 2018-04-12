@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "nodemon server/express.js;",
-    "test": "echo $USER;"
+    "test": ""
   },
   "dependencies": {
     "body-parser": "^1.18.2",
