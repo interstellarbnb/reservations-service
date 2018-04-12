@@ -6,15 +6,15 @@ mongoose.Promise = global.Promise
 const createEntries = (x, startingId = 2) => {
   let entries = [];
   // for 2-100 generate fake object and write to
-  for (let i = startingId; i <= x; i = i + 1) {
+  for (let id = startingId; id <= x + startingId; id = id + 1) {
     let params = {
-      id: i,
+      id,
       reservations: [{
-        id: i,
+        id,
         start: new Date(2018, 3, 15),
         end: new Date(2018, 3, 20),
       }, {
-        id: i + 1,
+        id: id + 1,
         start: new Date(2018, 3, 23),
         end: new Date(2018, 3, 28),
       }],
@@ -63,7 +63,7 @@ const seedReservations = () => {
   
   const listingOne = new Listing(listingOneParams);
   entries.push(listingOne);
-  entries.concat(createEntries(100));
+  entries.concat(createEntries(99));
   
   await saveEntries(entries);
 
