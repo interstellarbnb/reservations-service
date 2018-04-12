@@ -25,4 +25,4 @@ build/
 dist/
 
 # Example folder #
-example
+./example

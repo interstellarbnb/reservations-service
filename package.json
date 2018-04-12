@@ -1,15 +1,19 @@
 {
-  "name": "",
+  "name": "Interstellarbnb-Reservations",
   "version": "",
   "description": "",
-  "author": "",
-  "license": "",
+  "author": "Henry Chesnutt",
+  "license": "MIT",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "nodemon server/express.js;"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
