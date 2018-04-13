@@ -2,22 +2,22 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-let app = express();
+const app = express();
 const PORT = 3004;
 
-app.use((req, res, next) => {
+
+app.use(bodyParser.json());
+app.use(express.static((path.join(__dirname, '../client/dist'))));
+app.use((req, res) => {
   console.log(`Serving ${req.method} request to ${req.url}`);
 });
 
-app.use(bodyParser.json());
-app.use(express.static((path.join(__dirname, '../public'))));
-
-app.get((req, res) => {
+app.get('/listing/:id', (req, res) => {
   console.log('GET Request in get handler!');
 });
 
-app.post((req, res) => {
-  console.log('POST request in post handler!')
+app.post('/listing/:id', (req, res) => {
+  console.log('POST request in post handler!');
 });
 
-app.listen(PORT, () => console.log(`Reservations App listening on port ${PORT}`));
+app.listen(PORT, () => console.log(`Reservations App listening at http://localhost:${PORT}`));

@@ -1,7 +1,6 @@
-import react from 'react';
-import axios from 'axios';
+import React, { Component } from 'react';
 
-class Reservations extends React.Component {
+class Reservations extends Component {
   constructor() {
     super();
     this.state = {
@@ -16,3 +15,5 @@ class Reservations extends React.Component {
     );
   }
 }
+
+module.exports = Reservations;
