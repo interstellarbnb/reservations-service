@@ -17,9 +17,7 @@ const ListingSchema = new mongoose.Schema({
 
 const Listing = mongoose.model('Listing', ListingSchema);
 
-const serveListing = (id) => {
-  return Listing.findOne({ id });
-};
+const serveListing = id => Listing.findOne({ id });
 
 module.exports = {
   Listing,

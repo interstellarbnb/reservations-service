@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import Rate from '../Rate/Rate';
+
 class Reservations extends Component {
   constructor() {
     super();
@@ -27,8 +29,28 @@ class Reservations extends Component {
 
   render() {
     return (
-      <div>
-        Reservations rendered successfully!
+      <div className="container">
+        <div>
+          <Rate />
+        </div>
+        <div className="container">
+          -------------------
+        </div>
+        <div className="container">
+          Dates Component Goes Here
+        </div>
+        <div className="container">
+          Guests Component Goes Here
+        </div>
+        <div className="container">
+          -------------------
+        </div>
+        <div className="container">
+          Book Component Goes Here
+        </div>
+        <div className="container">
+          Views Component Goes Here
+        </div>
       </div>
     );
   }
