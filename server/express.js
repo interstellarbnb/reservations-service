@@ -2,21 +2,31 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+const { serveListing } = require('../database/database');
+
 const app = express();
 const PORT = 3004;
 
 
 app.use(bodyParser.json());
 app.use(express.static((path.join(__dirname, '../client/dist'))));
-app.use((req, res) => {
+app.use((req, res, next) => {
   console.log(`Serving ${req.method} request to ${req.url}`);
+  next();
 });
 
-app.get('/listing/:id', (req, res) => {
-  console.log('GET Request in get handler!');
+app.get('/listing/:listingId', async ({ params: { listingId } }, res) => {
+  try {
+    let listing = await serveListing(listingId);
+    listing = JSON.stringify(listing);
+    res.end(listing);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.post('/listing/:id', (req, res) => {
+  // TODO
   console.log('POST request in post handler!');
 });
 
