@@ -2,22 +2,32 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-let app = express();
+const { serveListing } = require('../database/database');
+
+const app = express();
 const PORT = 3004;
 
-app.use((req, res, next) => {
-  console.log(`Serving ${req.method} request to ${req.url}`);
-});
 
 app.use(bodyParser.json());
-app.use(express.static((path.join(__dirname, '../public'))));
-
-app.get((req, res) => {
-  console.log('GET Request in get handler!');
+app.use(express.static((path.join(__dirname, '../client/dist'))));
+app.use((req, res, next) => {
+  console.log(`Serving ${req.method} request to ${req.url}`);
+  next();
 });
 
-app.post((req, res) => {
-  console.log('POST request in post handler!')
+app.get('/listing/:listingId', async ({ params: { listingId } }, res) => {
+  try {
+    let listing = await serveListing(listingId);
+    listing = JSON.stringify(listing);
+    res.end(listing);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
-app.listen(PORT, () => console.log(`Reservations App listening on port ${PORT}`));
+app.post('/listing/:id', (req, res) => {
+  // TODO
+  console.log('POST request in post handler!');
+});
+
+app.listen(PORT, () => console.log(`Reservations App listening at http://localhost:${PORT}`));
