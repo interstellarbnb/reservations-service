@@ -10,7 +10,7 @@ class Reservations extends Component {
   constructor() {
     super();
     this.state = {
-      listing: [],
+      listing: {},
     };
   }
 
@@ -28,6 +28,15 @@ class Reservations extends Component {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  async addReservation(startDate, endDate) {
+    const { listing: { id } } = this.state;
+    const reservationParams = {
+      startDate,
+      endDate,
+    };
+    await axios.post(`/listing/${id}`, reservationParams);
   }
 
   render() {

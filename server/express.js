@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const { serveListing } = require('../database/database');
+const { serveListing, addReservation } = require('../database/database');
 
 const app = express();
 const PORT = 3004;
@@ -24,9 +24,13 @@ app.get('/listing/:listingId', async ({ params: { listingId } }, res) => {
   }
 });
 
-app.post('/listing/:id', (req, res) => {
-  // TODO
-  console.log('POST request in post handler!');
+app.post('/listing/:listingId', async ({ params: { listingId }, body: { startDate, endDate } }, res) => {
+  try {
+    await addReservation(listingId, startDate, endDate);
+    res.status(201).end();
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.listen(PORT, () => console.log(`Reservations App listening at http://localhost:${PORT}`));
