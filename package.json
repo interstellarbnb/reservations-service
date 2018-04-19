@@ -11,7 +11,9 @@
   "scripts": {
     "build": "webpack -w --config webpack.config.js",
     "start": "nodemon server/express.js",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "jest": {
     "transform": {
@@ -20,7 +22,10 @@
     "unmockedModulePathPatterns": [
       "node_modules/react/",
       "node_modules/enzyme/"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css)$": "identity-obj-proxy"
+    }
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-beta.44",
@@ -45,13 +50,17 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "file-loader": "^1.1.11",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.3",
     "react-test-renderer": "^16.3.1",
+    "request": "^2.85.0",
     "style-loader": "^0.20.3"
   }
 }
