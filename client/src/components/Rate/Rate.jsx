@@ -1,8 +1,17 @@
 import React from 'react';
 
-const Rate = props => (
+import Stars from '../Stars/Stars';
+
+const Rate = ({ listing }) => (
   <div className="container">
-    Rate Component
+    <div>From</div>
+    <div>{listing.fee}
+      <span> per night</span>
+    </div>
+    <div id="reviews">
+      <Stars stars={listing.avgStars} />
+      <div>{listing.views}</div>
+    </div>
   </div>
 );
 

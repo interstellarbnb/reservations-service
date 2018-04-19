@@ -28,10 +28,11 @@ class Reservations extends Component {
   }
 
   render() {
+    const { listing } = this.state;
     return (
       <div className="container">
         <div>
-          <Rate />
+          <Rate listing={listing} />
         </div>
         <div className="container">
           -------------------
