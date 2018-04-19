@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import Rate from '../Rate/Rate';
 import Line from '../Line/Line';
@@ -34,30 +35,35 @@ class Reservations extends Component {
 
   render() {
     const { listing } = this.state;
+
+    const Container = styled.div`
+      border: 1px solid black;
+    `;
+
     return (
-      <div className="container">
-        <div>
+      <Container>
+        <Container>
           <Rate listing={listing} />
-        </div>
-        <div className="container">
+        </Container>
+        <Container>
           <Line />
-        </div>
-        <div className="container">
-          <Dates />
-        </div>
-        <div className="container">
-          <Guests />
-        </div>
-        <div className="container">
-          <Book />
-        </div>
-        <div className="container">
+        </Container>
+        <Container>
+          <Dates listing={listing} />
+        </Container>
+        <Container>
+          <Guests listing={listing} />
+        </Container>
+        <Container>
+          <Book listing={listing} />
+        </Container>
+        <Container>
           <Line />
-        </div>
-        <div className="container">
-          <Views />
-        </div>
-      </div>
+        </Container>
+        <Container>
+          <Views listing={listing} />
+        </Container>
+      </Container>
     );
   }
 }
