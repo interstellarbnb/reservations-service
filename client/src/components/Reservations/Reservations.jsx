@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Rate from '../Rate/Rate';
+import Line from '../Line/Line';
+import Dates from '../Dates/Dates';
+import Guests from '../Guests/Guests';
+import Book from '../Book/Book';
+import Views from '../Views/Views';
 
 class Reservations extends Component {
   constructor() {
@@ -35,22 +40,22 @@ class Reservations extends Component {
           <Rate listing={listing} />
         </div>
         <div className="container">
-          -------------------
+          <Line />
         </div>
         <div className="container">
-          Dates Component Goes Here
+          <Dates />
         </div>
         <div className="container">
-          Guests Component Goes Here
+          <Guests />
         </div>
         <div className="container">
-          -------------------
+          <Book />
         </div>
         <div className="container">
-          Book Component Goes Here
+          <Line />
         </div>
         <div className="container">
-          Views Component Goes Here
+          <Views />
         </div>
       </div>
     );
