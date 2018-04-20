@@ -4,9 +4,7 @@ import styled from 'styled-components';
 
 import Rate from '../Rate/Rate';
 import Line from '../Line/Line';
-import Dates from '../Dates/Dates';
-import Guests from '../Guests/Guests';
-import Book from '../Book/Book';
+import Form from '../Form/Form';
 import Views from '../Views/Views';
 
 class Reservations extends Component {
@@ -43,9 +41,7 @@ class Reservations extends Component {
       <Container>
         <Rate listing={listing} />
         <Line />
-        <Dates listing={listing} />
-        <Guests listing={listing} />
-        <Book listing={listing} />
+        <Form listing={listing} />
         <Line />
         <Views listing={listing} />
       </Container>

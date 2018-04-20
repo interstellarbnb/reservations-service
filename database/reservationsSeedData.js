@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const { Listing } = require('./database.js');
 
 mongoose.Promise = global.Promise;
