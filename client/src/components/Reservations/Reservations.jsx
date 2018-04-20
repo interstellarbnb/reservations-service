@@ -37,32 +37,17 @@ class Reservations extends Component {
     const { listing } = this.state;
 
     const Container = styled.div`
-      border: 1px solid black;
     `;
 
     return (
       <Container>
-        <Container>
-          <Rate listing={listing} />
-        </Container>
-        <Container>
-          <Line />
-        </Container>
-        <Container>
-          <Dates listing={listing} />
-        </Container>
-        <Container>
-          <Guests listing={listing} />
-        </Container>
-        <Container>
-          <Book listing={listing} />
-        </Container>
-        <Container>
-          <Line />
-        </Container>
-        <Container>
-          <Views listing={listing} />
-        </Container>
+        <Rate listing={listing} />
+        <Line />
+        <Dates listing={listing} />
+        <Guests listing={listing} />
+        <Book listing={listing} />
+        <Line />
+        <Views listing={listing} />
       </Container>
     );
   }
