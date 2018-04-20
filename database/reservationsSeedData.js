@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const { Listing } = require('./database.js');
 
 mongoose.Promise = global.Promise;
@@ -21,7 +22,7 @@ const createEntries = (x, startingId = 2) => {
       }],
       reviewCount: Math.floor(Math.random() * 300),
       avgStars: Math.floor(Math.random() * 5),
-      fee: Math.floor(Math.random() * 250) + 50,
+      fee: Math.floor(Math.random() * 2400) + 600,
       maxGuests: Math.floor(Math.random() * 4) + 1,
       views: Math.floor(Math.random() * 1000),
     };

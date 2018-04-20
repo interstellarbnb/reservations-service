@@ -4,9 +4,7 @@ import styled from 'styled-components';
 
 import Rate from '../Rate/Rate';
 import Line from '../Line/Line';
-import Dates from '../Dates/Dates';
-import Guests from '../Guests/Guests';
-import Book from '../Book/Book';
+import Form from '../Form/Form';
 import Views from '../Views/Views';
 
 class Reservations extends Component {
@@ -37,32 +35,15 @@ class Reservations extends Component {
     const { listing } = this.state;
 
     const Container = styled.div`
-      border: 1px solid black;
     `;
 
     return (
       <Container>
-        <Container>
-          <Rate listing={listing} />
-        </Container>
-        <Container>
-          <Line />
-        </Container>
-        <Container>
-          <Dates listing={listing} />
-        </Container>
-        <Container>
-          <Guests listing={listing} />
-        </Container>
-        <Container>
-          <Book listing={listing} />
-        </Container>
-        <Container>
-          <Line />
-        </Container>
-        <Container>
-          <Views listing={listing} />
-        </Container>
+        <Rate listing={listing} />
+        <Line />
+        <Form listing={listing} />
+        <Line />
+        <Views listing={listing} />
       </Container>
     );
   }
