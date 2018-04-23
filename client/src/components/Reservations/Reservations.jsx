@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
 
 import Rate from '../Rate/Rate';
 import Line from '../Line/Line';
 import Form from '../Form/Form';
-import Views from '../Views/Views';
+import { Container } from '../styles';
 
 class Reservations extends Component {
   constructor() {
@@ -34,16 +33,12 @@ class Reservations extends Component {
   render() {
     const { listing } = this.state;
 
-    const Container = styled.div`
-    `;
-
     return (
       <Container>
         <Rate listing={listing} />
         <Line />
         <Form listing={listing} />
         <Line />
-        <Views listing={listing} />
       </Container>
     );
   }

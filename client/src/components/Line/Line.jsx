@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SubLine from './styles';
+import { SubLine } from '../styles';
 
 const Line = () => {
   const lStyle = {

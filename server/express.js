@@ -7,7 +7,6 @@ const { serveListing } = require('../database/database');
 const app = express();
 const PORT = 3004;
 
-
 app.use(bodyParser.json());
 app.use(express.static((path.join(__dirname, '../client/dist'))));
 app.use((req, res, next) => {
