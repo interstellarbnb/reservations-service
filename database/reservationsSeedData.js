@@ -12,11 +12,9 @@ const createEntries = (x, startingId = 2) => {
     const params = {
       id,
       reservations: [{
-        id,
         start: new Date(2018, 3, 15),
         end: new Date(2018, 3, 20),
       }, {
-        id: id + 1,
         start: new Date(2018, 3, 23),
         end: new Date(2018, 3, 28),
       }],
@@ -45,11 +43,9 @@ const seedReservations = async () => {
   const listingOneParams = {
     id: 1,
     reservations: [{
-      id: 1,
       start: new Date(2018, 3, 15),
       end: new Date(2018, 3, 20),
     }, {
-      id: 2,
       start: new Date(2018, 3, 23),
       end: new Date(2018, 3, 28),
     }],

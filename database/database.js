@@ -19,7 +19,36 @@ const Listing = mongoose.model('Listing', ListingSchema);
 
 const serveListing = id => Listing.findOne({ id });
 
+const addReservation = (listingId, startDate, endDate) => {
+  const newReservation = {
+    start: startDate,
+    end: endDate,
+  };
+  return new Promise((reject, resolve) => {
+    Listing.findOneAndUpdate(
+      { id: listingId },
+      { $push: { reservations: newReservation } },
+      { new: true },
+      (err, result) => (err ? reject(err) : resolve(result)),
+    );
+  });
+};
+
+const addListing = (listing) => {
+  const params = {
+    reviewCount: listing.reviewCount,
+    avgStars: listing.avgStars,
+    fee: listing.fee,
+    maxGuests: listing.maxGuests,
+    views: listing.views,
+  };
+  const newListing = new Listing(params);
+  return newListing.save();
+};
+
 module.exports = {
   Listing,
   serveListing,
+  addListing,
+  addReservation,
 };
