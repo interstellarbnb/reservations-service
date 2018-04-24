@@ -22,6 +22,10 @@ ReactDOM.render(
   document.getElementById('reservations'),
 );
 
+const SERVER_URL = 'http://localhost:3004';
+
 module.exports = {
-  SERVER_URL: 'http://localhost:3004',
+  SERVER_URL,
 };
+
+// export default SERVER_URL;

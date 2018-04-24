@@ -18,6 +18,7 @@ app.use((req, res, next) => {
 
 app.get('/listing/:listingId', async ({ params: { listingId } }, res) => {
   try {
+    console.log(listingId);
     let listing = await serveListing(listingId);
     listing = JSON.stringify(listing);
     res.end(listing);
