@@ -13,7 +13,8 @@
     "start": "nodemon server/express.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "seed": "node database/reservationSeedData.js"
   },
   "jest": {
     "transform": {
