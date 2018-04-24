@@ -29,13 +29,7 @@ const addReservation = (listingId, startDate, endDate) => {
       { id: listingId },
       { $push: { reservations: newReservation } },
       { new: true },
-      (err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(result);
-        }
-      },
+      (err, result) => (err ? reject(err) : resolve(result)),
     );
   });
 };

@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const { serveListing, addReservation, addListing } = require('../database/database');
+const { parseReservations } = require('./helpers.js');
 
 const app = express();
 const PORT = 3004;
@@ -25,9 +26,9 @@ app.get('/listing/:listingId', async ({ params: { listingId } }, res) => {
 });
 
 app.post('/listing', async ({ body }, res) => {
+  const newListing = parseReservations(body);
   try {
-    console.log(body.reservations);
-    // await addListing(body);
+    await addListing(newListing);
     res.status(201).end();
   } catch (error) {
     console.log(error);
