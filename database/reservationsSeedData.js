@@ -28,22 +28,18 @@ const createEntries = (x, startingId = 2) => {
     };
     entries.push(params);
   }
+  return entries;
 };
 // saves an array of entries to the db
 const saveEntries = async (entries) => {
-  try {
-    await Promise.all(entries.map((entry) => {
-      const newEntry = new Listing(entry);
-      return newEntry.save();
-    }));
-    console.log('All Saved!');
-  } catch (error) {
-    console.log(error);
-  }
+  return Promise.all(entries.map((entry) => {
+    const newEntry = new Listing(entry);
+    return newEntry.save();
+  }));
 };
 // Seeds the data into db
 const seedReservations = async () => {
-  const entries = [];
+  let entries = [];
 
   // For Listing one
   const listingOneParams = {
@@ -64,9 +60,14 @@ const seedReservations = async () => {
   };
   const listingOne = new Listing(listingOneParams);
   entries.push(listingOne);
-  entries.concat(createEntries(99));
-  await saveEntries(entries);
-  console.log('Seeding Done!');
+  entries = [...entries, ...createEntries(99)];
+  try {
+    console.log(entries);
+    await saveEntries(entries);
+    console.log('Seeding Done!');
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 seedReservations();
