@@ -21,3 +21,7 @@ ReactDOM.render(
   <Reservations />,
   document.getElementById('reservations'),
 );
+
+module.exports = {
+  SERVER_URL: 'http://localhost:3004',
+};

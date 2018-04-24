@@ -14,7 +14,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "seed": "node database/reservationSeedData.js"
+    "seed": "node database/reservationsSeedData.js"
   },
   "jest": {
     "transform": {
@@ -33,6 +33,7 @@
     "axios": "^0.18.0",
     "babel-core": "^7.0.0-0",
     "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "eslint": "^4.19.1",
     "express": "^4.16.3",
     "moment": "^2.22.1",

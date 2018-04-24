@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 
 const { serveListing } = require('../database/database');
 
 const app = express();
 const PORT = 3004;
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static((path.join(__dirname, '../client/dist'))));
 app.use((req, res, next) => {

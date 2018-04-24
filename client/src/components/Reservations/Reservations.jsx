@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import { SERVER_URL } from '../../index';
 import Rate from '../Rate/Rate';
 import Line from '../Line/Line';
 import Form from '../Form/Form';
@@ -20,7 +21,7 @@ class Reservations extends Component {
 
   async getListing(id) {
     try {
-      const { data } = await axios.get(`/listing/${id}`);
+      const { data } = await axios.get(`http://localhost:3004/listing/${id}`);
       const listing = data;
       this.setState({
         listing,
