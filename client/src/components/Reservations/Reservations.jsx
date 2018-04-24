@@ -15,13 +15,14 @@ class Reservations extends Component {
   }
 
   componentDidMount() {
-    this.getListing(1);
+    this.getListing();
   }
 
-  async getListing(id) {
+  async getListing() {
+    const id = window.location.pathname.split('/')[1];
     try {
-      const { data } = await axios.get(`/listing/${id}`);
-      const listing = data;
+      const result = await axios.get(`/listing/${id}`);
+      const listing = result.data;
       this.setState({
         listing,
       });
@@ -30,13 +31,13 @@ class Reservations extends Component {
     }
   }
 
-  async addReservation(startDate, endDate) {
+  addReservation(startDate, endDate) {
     const { listing: { id } } = this.state;
-    const reservationParams = {
+    const reservation = {
       startDate,
       endDate,
     };
-    await axios.post(`/listing/${id}`, reservationParams);
+    return axios.post(`/reservations/${id}`, reservation);
   }
 
   render() {

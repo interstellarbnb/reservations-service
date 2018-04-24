@@ -40,8 +40,21 @@ const addReservation = (listingId, startDate, endDate) => {
   });
 };
 
+const addListing = (listing) => {
+  const params = {
+    reviewCount: listing.reviewCount,
+    avgStars: listing.avgStars,
+    fee: listing.fee,
+    maxGuests: listing.maxGuests,
+    views: listing.views,
+  };
+  const newListing = new Listing(params);
+  return newListing.save();
+};
+
 module.exports = {
   Listing,
   serveListing,
+  addListing,
   addReservation,
 };
