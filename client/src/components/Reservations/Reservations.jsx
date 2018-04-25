@@ -19,20 +19,13 @@ class Reservations extends Component {
     this.getListing();
   }
 
-<<<<<<< HEAD
-  async getListing(id) {
-    console.log(SERVER_URL);
-    try {
-      console.log(id)
-      const { data } = await axios.get(`http://localhost:3004/listing/${id}`);
-      const listing = data;
-=======
   async getListing() {
+    console.log(SERVER_URL);
     const id = window.location.pathname.split('/')[1];
     try {
-      const result = await axios.get(`/listing/${id}`);
-      const listing = result.data;
->>>>>>> newReservations
+      console.log(id);
+      const { data } = await axios.get(`http://localhost:3004/listing/${id}`);
+      const listing = data;
       this.setState({
         listing,
       });
