@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const { Listing } = require('./database.js');
+const { Listing, closeConnection } = require('./database.js');
 
 mongoose.Promise = global.Promise;
 
@@ -58,8 +58,8 @@ const seedReservations = async () => {
   entries.push(listingOne);
   entries = [...entries, ...createEntries(99)];
   try {
-    console.log(entries);
     await saveEntries(entries);
+    closeConnection();
     console.log('Seeding Done!');
   } catch (error) {
     console.log(error);

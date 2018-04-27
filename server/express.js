@@ -48,4 +48,4 @@ app.post('/reservations/:listingId', async ({ params: { listingId }, body: { sta
   }
 });
 
-app.listen(PORT, () => console.log(`Reservations App listening at http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Reservations App listening at http://container:${PORT}`));

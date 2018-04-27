@@ -5,7 +5,7 @@ import Rate from '../Rate/Rate';
 import Line from '../Line/Line';
 import Form from '../Form/Form';
 import { Container } from '../styles';
-import { SERVER_URL } from '../../index';
+import SERVER_URL from '../../constants';
 
 class Reservations extends Component {
   constructor() {
@@ -20,11 +20,9 @@ class Reservations extends Component {
   }
 
   async getListing() {
-    console.log(SERVER_URL);
     const id = window.location.pathname.split('/')[1];
     try {
-      console.log(id);
-      const { data } = await axios.get(`http://localhost:3004/listing/${id}`);
+      const { data } = await axios.get(`${window.location.href}/listing/${id}`);
       const listing = data;
       this.setState({
         listing,
@@ -51,10 +49,9 @@ class Reservations extends Component {
         <Rate listing={listing} />
         <Line />
         <Form listing={listing} />
-        <Line />
       </Container>
     );
   }
 }
 
-module.exports = Reservations;
+export default Reservations;

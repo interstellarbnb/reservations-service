@@ -9,8 +9,8 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build": "webpack -w --config webpack.config.js",
-    "start": "nodemon server/express.js",
+    "build": "webpack --config webpack.config.js",
+    "start": "node database/reservationsSeedData.js & node server/express.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",

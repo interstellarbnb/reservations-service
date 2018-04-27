@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/Reservations');
+mongoose.connect('mongodb://database/Reservations');
 
 const ListingSchema = new mongoose.Schema({
   id: {
@@ -46,9 +46,14 @@ const addListing = (listing) => {
   return newListing.save();
 };
 
+const closeConnection = () => {
+  mongoose.disconnect();
+};
+
 module.exports = {
   Listing,
   serveListing,
   addListing,
   addReservation,
+  closeConnection,
 };
