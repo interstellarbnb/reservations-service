@@ -28,9 +28,15 @@ class Guests extends Component {
         {
           displayGuests ?
             <GuestsDisplay
-              guests={this.props.guests}
-              onIncrement={this.props.onIncrement}
-              onDecrement={this.props.onDecrement}
+              adults={this.props.adults}
+              childs={this.props.childs}
+              infants={this.props.infants}
+              onIncrementAdults={this.props.onIncrementAdults}
+              onDecrementAdults={this.props.onDecrementAdults}
+              onIncrementChildren={this.props.onIncrementChildren}
+              onDecrementChildren={this.props.onDecrementChildren}
+              onIncrementInfants={this.props.onIncrementInfants}
+              onDecrementInfants={this.props.onDecrementInfants}
             />
             : null
         }

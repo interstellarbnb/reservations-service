@@ -40,6 +40,12 @@ const SpaceBetween = styled.div`
   justify-content: space-between;
 `;
 
+const SpaceAround = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+`;
+
 const SubLine = styled.div`
   border-bottom: 1px solid #DBDBDB !important;
 `;
@@ -134,6 +140,7 @@ module.exports = {
   FromDiv,
   FeeDiv,
   SpaceBetween,
+  SpaceAround,
   InlineDiv,
   Small,
   SubLine,

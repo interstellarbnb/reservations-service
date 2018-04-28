@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { SpaceBetween } from '../styles';
+import { SpaceBetween, SpaceAround } from '../styles';
 
 const Display = styled.div`
   background: #ffffff;
@@ -19,8 +19,14 @@ const Display = styled.div`
   left: 0px;
 `;
 
+const SubContainer = styled.div`
+  margin-top: 16px;
+  margin-bottom: 16px;
+`;
+
 const Toggle = styled.div`
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
   vertical-align: middle;
 `;
 
@@ -30,18 +36,53 @@ const Label = styled.div`
   text-align: left !important;
 `;
 
-const GuestsDisplay = ({ guests, onIncrement, onDecrement }) => (
+const GuestsDisplay = ({ adults,
+  childs,
+  infants,
+  onIncrementAdults,
+  onDecrementAdults,
+  onIncrementChildren,
+  onDecrementChildren,
+  onIncrementInfants,
+  onDecrementInfants,
+}) => (
   <Display>
-    <SpaceBetween>
-      <Label>
-        Adults
-      </Label>
-      <Toggle>
-        <button onClick={onIncrement}>^</button>
-        {guests}
-        <button onClick={onDecrement}>v</button>
-      </Toggle>
-    </SpaceBetween>
+    <SubContainer>
+      <SpaceBetween>
+        <Label>
+          Adults
+        </Label>
+        <Toggle>
+          <button onClick={onDecrementAdults}>-</button>
+          {adults}
+          <button onClick={onIncrementAdults}>+</button>
+        </Toggle>
+      </SpaceBetween>
+    </SubContainer>
+    <SubContainer>
+      <SpaceBetween>
+        <Label>
+          Children
+        </Label>
+        <Toggle>
+          <button onClick={onDecrementChildren}>-</button>
+          {childs}
+          <button onClick={onIncrementChildren}>+</button>
+        </Toggle>
+      </SpaceBetween>
+    </SubContainer>
+    <SubContainer>
+      <SpaceBetween>
+        <Label>
+          Infants
+        </Label>
+        <Toggle>
+          <button onClick={onDecrementInfants}>-</button>
+          {infants}
+          <button onClick={onIncrementInfants}>+</button>
+        </Toggle>
+      </SpaceBetween>
+    </SubContainer>
   </Display>
 );
 
