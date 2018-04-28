@@ -112,7 +112,7 @@ export default class Form extends Component {
           this.state.endDate ?
             <PriceBreakdown
               listing={this.props.listing}
-              guests={this.state.guests}
+              adults={this.state.adults}
               startDate={this.state.startDate}
               endDate={this.state.endDate}
             />
