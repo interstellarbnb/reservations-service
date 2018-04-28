@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactStars from 'react-stars';
+import { shape, array, number } from 'prop-types';
 
 import { FromDiv, FeeDiv, InlineDiv, Small } from '../styles';
 
@@ -21,5 +22,17 @@ const RateView = ({ listing }) => (
     </InlineDiv>
   </div>
 );
+
+RateView.propTypes = {
+  listing: shape({
+    id: number.isRequired,
+    reservations: array.isRequired,
+    reviewCount: number.isRequired,
+    avgStars: number.isRequired,
+    fee: number.isRequired,
+    feeModifier: number.isRequired,
+    maxGuests: number.isRequired,
+  }).isRequired,
+};
 
 export default RateView;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { number, func } from 'prop-types';
 
 import { SpaceBetween, SpaceAround } from '../styles';
 
@@ -85,5 +86,17 @@ const GuestsDisplay = ({ adults,
     </SubContainer>
   </Display>
 );
+
+GuestsDisplay.propTypes = {
+  adults: number.isRequired,
+  childs: number.isRequired,
+  infants: number.isRequired,
+  onIncrementAdults: func.isRequired,
+  onDecrementAdults: func.isRequired,
+  onIncrementChildren: func.isRequired,
+  onDecrementChildren: func.isRequired,
+  onIncrementInfants: func.isRequired,
+  onDecrementInfants: func.isRequired,
+}
 
 export default GuestsDisplay;

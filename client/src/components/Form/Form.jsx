@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import { number, array, shape } from 'prop-types';
 
 import Guests from '../Guests/Guests';
 import Book from '../Book/Book';
@@ -71,6 +72,17 @@ export default class Form extends Component {
     if (this.state.infants > 0) this.setState({ infants: this.state.infants - 1 });
   }
 
+  renderPrice() {
+    if (this.state.endDate) {
+      return (<PriceBreakdown
+        listing={this.props.listing}
+        adults={this.state.adults}
+        startDate={this.state.startDate}
+        endDate={this.state.endDate}
+      />);
+    }
+  }
+
   render() {
     const dateProps = {
       startDatePlaceholderText: 'Check in',
@@ -108,19 +120,22 @@ export default class Form extends Component {
           onIncrementInfants={this.incrementInfants}
           onDecrementInfants={this.decrementInfants}
         />
-        {
-          this.state.endDate ?
-            <PriceBreakdown
-              listing={this.props.listing}
-              adults={this.state.adults}
-              startDate={this.state.startDate}
-              endDate={this.state.endDate}
-            />
-            : null
-        }
+        { this.renderPrice() }
         <Book />
         <Small><p>You won’t be charged yet</p></Small>
       </div>
     );
   }
 }
+
+Form.propTypes = {
+  listing: shape({
+    id: number.isRequired,
+    reservations: array.isRequired,
+    reviewCount: number.isRequired,
+    avgStars: number.isRequired,
+    fee: number.isRequired,
+    feeModifier: number.isRequired,
+    maxGuests: number.isRequired,
+  }),
+};

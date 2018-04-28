@@ -1,4 +1,5 @@
 import React from 'react';
+import { shape, number, array } from 'prop-types';
 
 import Line from '../Line/Line';
 import { LeftItem, RightItem, Container, SpaceBetween } from '../styles';
@@ -34,6 +35,19 @@ const PriceBreakdown = ({
       </SpaceBetween>
     </Container>
   );
+};
+
+PriceBreakdown.propTypes = {
+  listing: shape({
+    id: number.isRequired,
+    reservations: array.isRequired,
+    reviewCount: number.isRequired,
+    avgStars: number.isRequired,
+    fee: number.isRequired,
+    feeModifier: number.isRequired,
+    maxGuests: number.isRequired,
+  }).isRequired,
+  adults: number.isRequired,
 };
 
 export default PriceBreakdown;
