@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://database/Reservations');
+// mongoose.connect('mongodb://database/Reservations');
+mongoose.connect('mongodb://localhost/Reservations');
 
 const ListingSchema = new mongoose.Schema({
   id: {
@@ -11,6 +12,7 @@ const ListingSchema = new mongoose.Schema({
   reviewCount: Number,
   avgStars: Number,
   fee: Number,
+  feeModifier: Number,
   maxGuests: Number,
   views: Number,
 });
@@ -39,6 +41,7 @@ const addListing = (listing) => {
     reviewCount: listing.reviewCount,
     avgStars: listing.avgStars,
     fee: listing.fee,
+    feeModifier: listing.feeModifier,
     maxGuests: listing.maxGuests,
     views: listing.views,
   };

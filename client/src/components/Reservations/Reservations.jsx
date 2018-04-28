@@ -5,13 +5,12 @@ import Rate from '../Rate/Rate';
 import Line from '../Line/Line';
 import Form from '../Form/Form';
 import { Container } from '../styles';
-import SERVER_URL from '../../constants';
 
 class Reservations extends Component {
   constructor() {
     super();
     this.state = {
-      listing: {},
+      listing: null,
     };
   }
 
@@ -22,7 +21,8 @@ class Reservations extends Component {
   async getListing() {
     const id = window.location.pathname.split('/')[1];
     try {
-      const { data } = await axios.get(`${window.location.href}/listing/${id}`);
+      // const { data } = await axios.get(`http://ec2-52-36-106-173.us-west-2.compute.amazonaws.com/${id}/listing`);
+      const { data } = await axios.get(`http://localhost:3004/${id}/listing`);
       const listing = data;
       this.setState({
         listing,

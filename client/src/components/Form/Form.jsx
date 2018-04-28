@@ -25,13 +25,13 @@ export default class Form extends Component {
   dayIsBlocked(date) {
     const { listing: { reservations } } = this.props;
     const jsDate = date.toDate();
-
-    return reservations.map(({ start, end }) => (
-      jsDate <= new Date(end.$date) && jsDate >= new Date(start.$date)
+    let result = reservations.map(({ start, end }) => (
+      jsDate <= new Date(end) && jsDate >= new Date(start)
     )).reduce((wasTrue, current) => {
       if (wasTrue) return true;
       return current;
     }, false);
+    return result;
   }
 
   incrementGuests() { this.setState({ guests: this.state.guests + 1 }); }
