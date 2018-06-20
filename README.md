@@ -1,13 +1,11 @@
 # Project Name
 
-> Project description
+> Reservations data express endpoint masking a mongo database.
 
 ## Related Projects
-
-  - https://github.com/interstellarbnb/repo
-  - https://github.com/interstellarbnb/repo
-  - https://github.com/interstellarbnb/repo
-  - https://github.com/interstellarbnb/repo
+  - https://github.com/interstellarbnb/reviews-service
+  - https://github.com/interstellarbnb/product-details-service
+  - https://github.com/interstellarbnb/similar-listings-service
 
 ## Table of Contents
 
@@ -17,7 +15,8 @@
 
 ## Usage
 
-> Some usage instructions
+> build bundle files with `npm run build`
+> Start project with `npm run start`
 
 ## Requirements
 
@@ -37,3 +36,11 @@ npm install -g webpack
 npm install
 ```
 
+### Starting App
+
+From within the root directory:
+
+```sh
+npm run build
+npm start
+```

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { number, func } from 'prop-types';
 
-import { SpaceBetween, SpaceAround } from '../styles';
+import { SpaceBetween, GuestTypeBtn } from '../styles';
 
 const Display = styled.div`
   background: #ffffff;
@@ -54,9 +54,9 @@ const GuestsDisplay = ({ adults,
           Adults
         </Label>
         <Toggle>
-          <button onClick={onDecrementAdults}>-</button>
+          <GuestTypeBtn onClick={onDecrementAdults}>-</GuestTypeBtn>
           {adults}
-          <button onClick={onIncrementAdults}>+</button>
+          <GuestTypeBtn onClick={onIncrementAdults}>+</GuestTypeBtn>
         </Toggle>
       </SpaceBetween>
     </SubContainer>
@@ -66,9 +66,9 @@ const GuestsDisplay = ({ adults,
           Children
         </Label>
         <Toggle>
-          <button onClick={onDecrementChildren}>-</button>
+          <GuestTypeBtn onClick={onDecrementChildren}>-</GuestTypeBtn>
           {childs}
-          <button onClick={onIncrementChildren}>+</button>
+          <GuestTypeBtn onClick={onIncrementChildren}>+</GuestTypeBtn>
         </Toggle>
       </SpaceBetween>
     </SubContainer>
@@ -78,9 +78,9 @@ const GuestsDisplay = ({ adults,
           Infants
         </Label>
         <Toggle>
-          <button onClick={onDecrementInfants}>-</button>
+          <GuestTypeBtn onClick={onDecrementInfants}><span>-</span></GuestTypeBtn>
           {infants}
-          <button onClick={onIncrementInfants}>+</button>
+          <GuestTypeBtn onClick={onIncrementInfants}>+</GuestTypeBtn>
         </Toggle>
       </SpaceBetween>
     </SubContainer>

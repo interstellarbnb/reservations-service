@@ -121,6 +121,19 @@ const GuestBtn = styled.button`
   color: #484848;
 `;
 
+const GuestTypeBtn = styled.button`
+  max-width: 20px;
+  max-height: 20px;
+  color: #008489 !important;
+  background-color: white;
+  border: 1px solid #008489;
+  border-radius: 50%;
+  text-align: center;
+  > span {
+    vertical-align: center;
+  }
+`;
+
 const Small = styled.small`
   word-wrap: break-word;
   font-weight: normal;
@@ -142,11 +155,11 @@ module.exports = {
   SpaceBetween,
   SpaceAround,
   InlineDiv,
-  Small,
   SubLine,
   LeftItem,
   RightItem,
   BookBtn,
   GuestBtn,
+  GuestTypeBtn,
   Small,
 };

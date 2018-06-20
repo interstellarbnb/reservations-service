@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-// mongoose.connect('mongodb://database/Reservations');
-mongoose.connect('mongodb://localhost/Reservations');
+mongoose.connect('mongodb://database/Reservations');
+// mongoose.connect('mongodb://localhost/Reservations');
 
 const ListingSchema = new mongoose.Schema({
   id: {
